@@ -26,10 +26,10 @@ server.get("/", async (req, res, next) => {
     }
 });
 
-server.use("/api/user", userRouter);
-server.use("/api/ingredients", ingredientRouter);
-server.use("/api/recipe", recipeRouter);
-server.use("/api/ingredientslist", ingredientsListRouter);
+// server.use("/api/user", userRouter);
+// server.use("/api/ingredients", ingredientRouter);
+// server.use("/api/recipe", recipeRouter);
+// server.use("/api/ingredientslist", ingredientsListRouter);
 
 server.use((err, req, res, next) => {
     console.log(err);
