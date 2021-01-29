@@ -3,7 +3,7 @@ const Recipe = require("../recipe/model");
 
 const router = express.Router();
 
-router.get("/recipe", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         const recipe = await Recipe.getRecipes();
         console.log(Recipe);
@@ -13,7 +13,7 @@ router.get("/recipe", async (req, res, next) => {
     }
 })
 
-router.get("/recipe/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
     console.log(req)
     try {
         const recipe = await Recipe.getRecipeById(req.params.id)
@@ -28,7 +28,7 @@ router.get("/recipe/:id", async (req, res, next) => {
     }
 })
 
-router.get("/recipe/:id/instructions", async (req, res, next) => {
+router.get("/:id/instructions", async (req, res, next) => {
     try {
         const instruction = await Recipe.getInstructions(req.params.id)
         res.json(instruction)

@@ -4,7 +4,7 @@ const Ingredients = require("./model");
 
 const router = express.Router();
 
-router.get("/ingredients", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         const ingredients = await Ingredients.find()
         res.json(ingredients)
@@ -13,7 +13,7 @@ router.get("/ingredients", async (req, res, next) => {
     }
 })
 
-router.get("/ingredients/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
     try {
         const ingredients = await Ingredients.findById(req.params.id)
         if (!ingredients) {

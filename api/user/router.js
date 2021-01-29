@@ -6,7 +6,7 @@ const Users = require("./model");
 
 const router = express.Router();
 
-router.get("/users", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         res.json(await Users.getUsers());
     } catch (err) {
