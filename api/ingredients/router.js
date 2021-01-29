@@ -36,6 +36,19 @@ router.post("/", async (req, res, next) => {
     }
 })
 
+router.put("/:id", async (req, res, next) => {
+    try {
+        const [id] = req.params.id
+        const changes = req.body;
+
+        Ingredients.findById(id);
+        const edited = Ingredients.editIngredient(changes, id)
+        res.json(edited);
+    } catch (err) {
+        next(err);
+    }
+})
+
 router.delete("/:id", async (req, res, next) => {
     try {
         const { id } = req.params

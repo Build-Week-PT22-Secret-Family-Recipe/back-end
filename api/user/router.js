@@ -6,7 +6,7 @@ const restrict  = require("./middleware");
 
 const router = express.Router();
 
-router.get("/", restrict, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         res.json(await Users.getUsers());
     } catch (err) {

@@ -47,10 +47,9 @@ router.post("/", async (req, res, next) => {
     }
 })
 
-// need clarification
 router.put("/:id", async (req, res, next) => {
     try {
-        const {id} = req.params.id;
+        const [id] = req.params.id
         const changes = req.body;
         Recipe.getRecipeById(id);
         const edited = Recipe.editRecipe(changes, id)
