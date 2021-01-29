@@ -6,7 +6,7 @@ function getRecipes() {
 
 function getRecipeById(id) {
     return db("recipes")
-    .where("recipes.id", id)
+        .where("recipes.id", id)
 }
 
 function getInstructions(recipe_id) {
