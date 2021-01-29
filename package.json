@@ -22,8 +22,8 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "node index.js",
     "server": "nodemon index.js",
+    "start": "node index.js",
     "test": "cross-env NODE_ENV=testing jest api/server.test.js --watchAll --verbose --runInBand"
   },
   "repository": {
