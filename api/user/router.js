@@ -2,11 +2,11 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Users = require("./model");
-// const { restrict } = require("./middleware");
+const restrict  = require("./middleware");
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
+router.get("/", restrict, async (req, res, next) => {
     try {
         res.json(await Users.getUsers());
     } catch (err) {

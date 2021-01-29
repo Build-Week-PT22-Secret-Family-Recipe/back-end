@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 
+
 module.exports = async (req, res, next) => {
+
     const authError = {
         Message: "Invalid credentials"
     }
@@ -21,4 +23,6 @@ module.exports = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+    
 }
+

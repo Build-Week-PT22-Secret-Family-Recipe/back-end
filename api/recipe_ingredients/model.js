@@ -5,7 +5,7 @@ function getIngredientsList(id) {
         .where("recipe_id", id)
         .innerJoin("recipes", "recipe_id", "recipes.id")
         .innerJoin("ingredients", "ingredients_id", "ingredients.id")
-    .select("recipe_id", "recipes.name", "ingredients.name")
+    .select("ingredients.name")
 }
 
 // function getIngredientsListById(id) {

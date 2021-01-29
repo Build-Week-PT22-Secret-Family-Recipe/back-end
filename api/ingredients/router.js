@@ -1,5 +1,4 @@
 const express = require("express");
-const { route } = require("../user/router");
 const Ingredients = require("./model");
 
 const router = express.Router();
@@ -22,6 +21,26 @@ router.get("/:id", async (req, res, next) => {
             })
         }
         res.json(ingredients)
+    } catch (err) {
+        next(err);
+    }
+})
+
+router.post("/", async (req, res, next) => {
+    try {
+        const newOne = req.body;
+        const newIngredient = await Ingredients.addIngredients(newOne)
+        res.status(201).json(newIngredient)
+    } catch (err) {
+        next(err);
+    }
+})
+
+router.delete("/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const deleted = await Ingredients.removeIngredient(id)
+        res.json({ removed: deleted });
     } catch (err) {
         next(err);
     }
