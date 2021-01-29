@@ -64,4 +64,4 @@ typings/
 .vscode/launch.json
 
 # Environment variable
-.env
+.envnode_modules
