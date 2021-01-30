@@ -37,7 +37,9 @@ router.post("/signup", async (req, res, next) => {
             username,
             password: await bcrypt.hash(password, 10),
         })
+
         res.status(201).json(newUser)
+       
     } catch (err) {
         next(err);
     }
@@ -67,9 +69,10 @@ router.post("/login", async (req, res, next) => {
             userId: user.id,
             username: username, 
         }, process.env.JWT_SECRET)
-        res.cookie("token", token);
+        // res.cookie("token", token);
         res.json({
             Message: `Welcome, ${user.username}`,
+            token: token,
         })
     } catch (err) {
         next(err);
