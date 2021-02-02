@@ -9,13 +9,13 @@ getUsers ===================> /api/user
 
 get recipes ===================> /api/recipes
 
-get recipes ById ===================> /api/recipe/:id
+get recipes ById ===================> /api/recipes/:id
 
-add recipe ===================> /api/recipe
+add recipe ===================> /api/recipes
 
-delete recipe ===================> /api/recipe/:id
+delete recipe ===================> /api/recipes/:id
 
-get recipes with instruction ===================> /api/recipe/:id/instructions
+get recipes with instruction ===================> /api/recipes/:id/instructions
 
 get ingredients ===================> /api/ingredients
 
