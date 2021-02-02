@@ -1,15 +1,16 @@
 const express = require("express");
 const Recipe = require("../recipe/model");
+const { restricted } = require("../user/middleware");
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
+router.get("/", restricted(), async (req, res) => {
     try {
         const recipe = await Recipe.getRecipes();
         console.log(Recipe);
         res.json(recipe)
     } catch (err) {
-        next(err);
+       
     }
 })
 

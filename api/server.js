@@ -3,12 +3,11 @@ const cors = require("cors");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
-// const restrict = require("./user/middleware");
 const userRouter = require("./user/router");
 const recipeRouter = require("./recipe/router");
 const ingredientRouter = require("./ingredients/router");
 const ingredientsListRouter = require("./recipe_ingredients/router");
-const { restrict } = require("./user/middleware");
+const {restricted}  = require("./user/middleware");
  
 const server = express();
 
@@ -29,7 +28,7 @@ server.get("/", async (req, res, next) => {
 
 server.use("/api/user", userRouter);
 server.use("/api/ingredients", ingredientRouter);
-server.use("/api/recipe", recipeRouter);
+server.use("/api/recipes", recipeRouter);
 server.use("/api/ingredientslist", ingredientsListRouter);
 
 server.use((err, req, res, next) => {

@@ -20,4 +20,13 @@ router.get("/recipe/:id/ingredients", async (req, res, next) => {
     }
 })
 
+router.post("/recipe/:id/ingredients", async (req, res, next) => {
+    try {
+        const newItem = req.body;
+        const newIngredients = await Recipe_Ingredients.addIngredientsToRecipe(newItem)
+        res.status(210).json(newIngredients);
+    } catch (err) {
+        next(err);
+    }
+} )
 module.exports = router;

@@ -1,0 +1,10 @@
+const { json } = require("express");
+const supertest = require("supertest");
+const server = require("../api/server");
+
+test("GET /", async () => {
+    const res = await supertest(server).get("/")
+    expect(res.statusCode).toBe(200);
+    expect(res.type).toBe("application/json");
+    expect(res.body.Message).toBe("Welcome to our Family Recipe App");
+})
