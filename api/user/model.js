@@ -7,22 +7,19 @@ async function addUser(user) {
 
 function getUsers() {
     return db("users")
-        .innerJoin("roles", "users.role_id", "roles.id")
-        .select("users.id", "users.username as User", "roles.role as Role");
+        .select("users.id", "users.username");
 }
 
 function findUserById(id) {
     return db("users")
-        .innerJoin("roles", "users.role_id", "roles.id")
         .where("users.id", id)
-        .first("users.id", "users.username as User", "roles.role as Role")
+        .first("users.id", "users.username")
 }
 
 function findByUsername(username) {
     return db("users")
         .where("users.username", username)
-        .innerJoin("roles", "users.role_id", "roles.id")
-        .select("users.id", "users.username", "users.password", "roles.role as Role")
+        .select("users.id", "users.username", "users.password")
 }
 
 module.exports = {
