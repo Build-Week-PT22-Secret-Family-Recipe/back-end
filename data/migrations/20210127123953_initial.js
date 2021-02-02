@@ -25,8 +25,8 @@ exports.up = async function(knex) {
     })
 
     await knex.schema.createTable("recipe_ingredients", (table) => {
-        table.integer("recipe_id").notNull().references("id").inTable("recipes");
-        table.integer("ingredients_id").notNull().references("id").inTable("ingredients")
+        table.integer("recipe_id").notNull().references("id").inTable("recipes").onDelete("CASCADE");
+        table.integer("ingredients_id").notNull().references("id").inTable("ingredients").onDelete("CASCADE")
         table.primary(["recipe_id", "ingredients_id"])
         table.text("quantity").notNull();
     })
