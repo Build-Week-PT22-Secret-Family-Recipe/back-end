@@ -1,10 +1,11 @@
 const express = require("express");
 
 const Recipe_Ingredients = require("../recipe_ingredients/model");
+const {restricted} = require("../user/middleware")
 
 const router = express.Router();
 
-router.get("/recipe/:id/ingredients", async (req, res, next) => {
+router.get("/recipe/:id/ingredients", restricted(), async (req, res, next) => {
     try {
         const ingredientList = await Recipe_Ingredients.getIngredientsList(req.params.id)
 
@@ -20,7 +21,7 @@ router.get("/recipe/:id/ingredients", async (req, res, next) => {
     }
 })
 
-router.post("/recipe/:id/ingredients", async (req, res, next) => {
+router.post("/recipe/:id/ingredients", restricted(), async (req, res, next) => {
     try {
         const newItem = req.body;
         const newIngredients = await Recipe_Ingredients.addIngredientsToRecipe(newItem)

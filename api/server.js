@@ -7,7 +7,6 @@ const userRouter = require("./user/router");
 const recipeRouter = require("./recipe/router");
 const ingredientRouter = require("./ingredients/router");
 const ingredientsListRouter = require("./recipe_ingredients/router");
-const {restricted}  = require("./user/middleware");
  
 const server = express();
 

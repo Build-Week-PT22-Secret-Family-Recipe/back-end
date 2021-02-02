@@ -14,7 +14,7 @@ router.get("/", restricted(), async (req, res) => {
     }
 })
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", restricted(), async (req, res, next) => {
     console.log(req)
     try {
         const recipe = await Recipe.getRecipeById(req.params.id)
@@ -29,7 +29,7 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
-router.get("/:id/instructions", async (req, res, next) => {
+router.get("/:id/instructions", restricted(), async (req, res, next) => {
     try {
         const instruction = await Recipe.getInstructions(req.params.id)
         res.json(instruction)
@@ -38,7 +38,7 @@ router.get("/:id/instructions", async (req, res, next) => {
     }
 })
 
-router.post("/", async (req, res, next) => {
+router.post("/", restricted(), async (req, res, next) => {
     try {
         const newOne = req.body;
         const newRecipe = await Recipe.addRecipe(newOne)
@@ -48,7 +48,7 @@ router.post("/", async (req, res, next) => {
     }
 })
 
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", restricted(), async (req, res, next) => {
     try {
         const [id] = req.params.id
         const changes = req.body;
@@ -61,7 +61,7 @@ router.put("/:id", async (req, res, next) => {
     }
 })
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", restricted(), async (req, res, next) => {
     try {
         const { id } = req.params
         const deleted = await Recipe.removeRecipe(id)
