@@ -20,7 +20,7 @@ function addRecipe(newRecipe) {
     return db("recipes")
         .insert(newRecipe)
         .into("recipes")
-        .select("*");
+        .returning("*");
         // return getRecipeById(id)
 }
 
