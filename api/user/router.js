@@ -37,7 +37,6 @@ router.post("/signup", async (req, res, next) => {
             username,
             password: await bcrypt.hash(password, 10),
         })
-
         res.status(201).json(newUser)
        
     } catch (err) {
