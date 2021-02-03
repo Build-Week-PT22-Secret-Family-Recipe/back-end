@@ -8,10 +8,11 @@ function getIngredientsList(id) {
     .select("ingredients.name", "recipe_ingredients.quantity")
 }
 
-async function addIngredientsToRecipe(newItem) {
-    const [id] = await db("recipe_ingredients")
+function addIngredientsToRecipe(newItem) {
+    return db("recipe_ingredients")
         .insert(newItem)
         .into("recipe_ingredients")
+        .returning("*");
         getIngredientsList(id)
 }
 

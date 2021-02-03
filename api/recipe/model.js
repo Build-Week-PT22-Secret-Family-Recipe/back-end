@@ -19,7 +19,7 @@ function getInstructions(recipe_id) {
 function addRecipe(newRecipe) {
     return db("recipes")
         .insert(newRecipe)
-        .into("recipes")
+        // .into("recipes")
         .returning("*");
         // return getRecipeById(id)
 }

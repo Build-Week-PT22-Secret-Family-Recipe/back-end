@@ -11,11 +11,12 @@ function findById(id) {
         .first();
 }
 
-async function addIngredients(newIngredients) {
-    const [id] = await db("ingredients")
+function addIngredients(newIngredients) {
+    return db("ingredients")
         .insert(newIngredients)
         .into("ingredients")
-    return findById(id);
+        .returning("*");
+    // return findById(id);
 }
 
 async function editIngredient(change, ingredients_id) {
