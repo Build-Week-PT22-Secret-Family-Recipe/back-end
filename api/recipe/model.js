@@ -20,6 +20,7 @@ async function addRecipe(newRecipe) {
     const [id] = await db("recipes")
         .insert(newRecipe)
         .into("recipes")
+        .select("*");
         return getRecipeById(id)
 }
 
