@@ -16,12 +16,12 @@ function getInstructions(recipe_id) {
     .select("recipes.id", "recipes.category", "recipes.name", "recipes.instruction")
 }
 
-async function addRecipe(newRecipe) {
-    const [id] = await db("recipes")
+function addRecipe(newRecipe) {
+    return db("recipes")
         .insert(newRecipe)
         .into("recipes")
         .select("*");
-        return getRecipeById(id)
+        // return getRecipeById(id)
 }
 
 async function editRecipe(change, recipe_id) {
