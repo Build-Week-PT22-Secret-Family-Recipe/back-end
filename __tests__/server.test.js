@@ -1,4 +1,4 @@
-const { json } = require("express");
+require("dotenv").config();
 const supertest = require("supertest");
 const server = require("../api/server");
 
