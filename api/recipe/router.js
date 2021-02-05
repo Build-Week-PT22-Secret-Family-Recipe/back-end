@@ -7,7 +7,6 @@ const router = express.Router();
 router.get("/", restricted(), async (req, res) => {
     try {
         const recipe = await Recipe.getRecipes();
-        console.log(Recipe);
         res.json(recipe)
     } catch (err) {
        
@@ -15,7 +14,6 @@ router.get("/", restricted(), async (req, res) => {
 })
 
 router.get("/:id", restricted(), async (req, res, next) => {
-    console.log(req)
     try {
         const recipe = await Recipe.getRecipeById(req.params.id)
         if (!recipe) {

@@ -30,4 +30,13 @@ describe("Recipe Integration tests", () => {
         expect(res.statusCode).toBe(200);
         // expect(res.body[1].category).toBe("breakfast"); //returns undefined
     })
+
+    it("gets a recipe by ID", async () => {
+        const res = await supertest(server).get("/api/recipes/:id")
+        .set('Authorization', `${token}`);
+        expect(res.type).toBe("application/json");
+        // expect(res.body.Message).toBe("Recipe not found")
+        expect(res.statusCode).toBe(200); // desn't accept 404
+    })
+
 })
